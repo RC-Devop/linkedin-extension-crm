@@ -1,0 +1,369 @@
+:root {
+  --primary: #0077b5;
+  --primary-dark: #005e8d;
+  --secondary: #e6f4f9;
+  --success: #d4edda;
+  --error: #f8d7da;
+  --text: #333;
+  --muted: #888;
+  --radius: 10px;
+  --card-bg: #ffffff;
+  --background: #f2f4f8;
+  --border: #e1e4e8;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  background-color: var(--background);
+  width: 360px;
+  padding: 16px;
+  margin: 0;
+}
+
+.popup-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.popup-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.popup-header img {
+  width: 28px;
+  height: 28px;
+}
+
+.popup-header h1 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.card p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.card .placeholder {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  width: 100%;
+}
+
+.btn.primary {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn.secondary {
+  background-color: #f0f0f0;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.status-message {
+  font-size: 13px;
+  padding: 10px;
+  text-align: center;
+  border-radius: var(--radius);
+  display: none;
+}
+
+#status.success {
+  background-color: var(--success);
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+#status.error {
+  background-color: var(--error);
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.alert.success {
+  background-color: var(--success);
+  color: #155724;
+  padding: 10px;
+  border-radius: var(--radius);
+  text-align: center;
+  font-size: 13px;
+}
+
+/* Login Page Styles */
+.login-body {
+  font-family: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
+  background-color: #f9fafb;
+  margin: 0;
+  padding: 0;
+  width: 600px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  width: 500px;
+  max-width: 380px;
+  padding: 20px;
+}
+
+.login-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.login-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.login-logo {
+  width: 36px;
+  height: 36px;
+}
+
+.login-header h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0077b5;
+  margin: 0;
+}
+
+.login-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 24px 0;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.password-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forgot-password {
+  font-size: 14px;
+  color: #0077b5;
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 10px 10px 10px 40px;
+  font-size: 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background-color: white;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: #0077b5;
+  box-shadow: 0 0 0 3px rgba(0, 119, 181, 0.2);
+}
+
+.login-form input::placeholder {
+  color: #9ca3af;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #4b5563;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: relative;
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  background-color: white;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  border-color: #0077b5;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #0077b5;
+  border-color: #0077b5;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 4px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.login-button {
+  background-color: #0077b5;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.login-button:hover {
+  background-color: #005e8d;
+}
+
+.login-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 119, 181, 0.4);
+}
+
+.login-status {
+  margin-top: 16px;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 14px;
+  display: none;
+}
+
+.login-status.error {
+  display: block;
+  background-color: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+.login-status.success {
+  display: block;
+  background-color: #f0fdf4;
+  color: #166534;
+  border: 1px solid #dcfce7;
+}
+
+.login-footer {
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.login-footer a {
+  color: #0077b5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+

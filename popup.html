@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LinkUp CRM</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 16px;
+      width: 370px;
+      background-color: #f1f3f5;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .header img {
+      height: 28px;
+      width: 28px;
+      border-radius: 6px;
+    }
+
+    .header h2 {
+      margin: 0;
+      color: #0077b5;
+      font-size: 1.2rem;
+    }
+
+    #contactInfo {
+      background: #ffffff;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid #e0e0e0;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    #contactInfo p {
+      margin: 8px 0;
+      font-size: 14px;
+    }
+
+    #contactInfo strong {
+      font-weight: 600;
+      color: #333;
+    }
+
+    .button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    #checkStatus {
+      background-color: #0077b5;
+      color: white;
+    }
+
+    #checkStatus:hover {
+      background-color: #005e93;
+    }
+
+    #saveContact {
+      background-color: #34a853;
+      color: white;
+    }
+
+    #saveContact:hover {
+      background-color: #2e914a;
+    }
+
+    .success-message {
+      background-color: #2fdf61;
+      color: #00360d;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      border: 1px solid #00360d;
+    }
+
+    .status-message {
+      text-align: center;
+      font-size: 13px;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    #status.success {
+      background-color: #e8f5e9;
+      color: #1b5e20;
+      border: 1px solid #c8e6c9;
+    }
+
+    #status.error {
+      background-color: #ffebee;
+      color: #c62828;
+      border: 1px solid #ef9a9a;
+    }
+
+    .payload-box {
+      background-color: #fafafa;
+      border: 1px dashed #ccc;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 12px;
+      white-space: pre-wrap;
+      color: #333;
+    }
+    
+    .added-by-container {
+      background: #ffffff;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid #e0e0e0;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+      display: none;
+    }
+    
+    .added-by-container label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      color: #333;
+    }
+    
+    .added-by-container input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    
+    .added-by-container input:focus {
+      outline: none;
+      border-color: #0077b5;
+      box-shadow: 0 0 0 2px rgba(0, 119, 181, 0.2);
+    }
+    
+    .button-row {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .button-row button {
+      flex: 1;
+    }
+    
+    .cancel-button {
+      background-color: #f1f3f5;
+      color: #4b5563;
+      border: 1px solid #d1d5db;
+    }
+    
+    .cancel-button:hover {
+      background-color: #e5e7eb;
+    }
+    
+    .added-by-display {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid #e0e0e0;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    }
+    
+    .added-by-name {
+      flex-grow: 1;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    
+    .edit-icon {
+      cursor: pointer;
+      color: #0077b5;
+      padding: 4px;
+    }
+    
+    .edit-icon:hover {
+      color: #005e93;
+      background-color: #f0f7fb;
+      border-radius: 4px;
+    }
+    
+    .user-icon {
+      color: #0077b5;
+      margin-right: 8px;
+    }
+    
+    .view-contact-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #0077b5;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+    
+    .view-contact-btn:hover {
+      background-color: #005e93;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="icons/icon32.png" alt="logo">
+    <h2>LinkUp CRM</h2>
+  </div>
+
+  <div id="status" style="display:none;" class="status-message"></div>
+
+  <div id="contactInfo">
+    <p>Loading profile data...</p>
+  </div>
+
+  <div id="addedByDisplay" class="added-by-display" style="display:none;">
+    <span class="user-icon">Last Person who used this extension</span>
+    <span class="added-by-name" id="savedAddedByName"></span>
+    <span class="edit-icon" id="editAddedBy" title="Edit name">Edit</span>
+  </div>
+
+  <div id="actionButtons">
+    <button id="checkStatus" class="button">Check Status</button>
+    <button id="saveContact" class="button" style="display:none;">Add to CRM</button>
+    <div id="existsMessage" class="success-message" style="display:none;">
+      Contact already exists in CRM
+    </div>
+    <div id="savedMessage" class="success-message" style="display:none;">
+      Contact saved successfully!
+    </div>
+  </div>
+  
+  <div id="addedByContainer" class="added-by-container">
+    <label for="addedBy">Added By <span style="color: #e53e3e;">*</span></label>
+    <input type="text" id="addedBy" placeholder="Enter your name" required>
+    <div style="margin-top: 16px;" class="button-row">
+      <button id="cancelAddContact" class="button cancel-button">Cancel</button>
+      <button id="confirmAddContact" class="button" style="background-color: #34a853; color: white;">Confirm</button>
+    </div>
+  </div>
+
+  <div id="payload" class="payload-box" style="display:none;"></div>
+
+  <script src="popup.js">
+    chrome.storage.sync.get("accessToken", (data) => {
+      if (!data.accessToken) {
+        window.location.href = "login.html";
+      }
+    });
+  </script>
+</body>
+</html>
